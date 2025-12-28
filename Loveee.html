@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>For My Love ❤️</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ff9a9e, #fad0c4);
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background: white;
+      padding: 30px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 500px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    button {
+      background: hotpink;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      margin: 10px;
+    }
+
+    button:hover {
+      background: deeppink;
+    }
+
+    .letter {
+      margin: 20px 0;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .slide {
+      animation: slideIn 0.6s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateX(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="love.mp3" type="audio/mpeg">
+  </audio>
+
+  <div class="container">
+
+    <!-- Slide 1: Closed Letter -->
+    <div id="slideLetter">
+      <h1>💌 You got a letter</h1>
+      <button onclick="openLetter()">Open the Letter</button>
+    </div>
+
+    <!-- Slide 2: Letter Content -->
+    <div id="slideContent" class="slide" style="display:none;">
+      <h2>Happy New Year ❤️</h2>
+      <p class="letter">
+        My love,<br><br>
+        You are the most precious part of my life.
+        Every smile of yours makes my world brighter.
+        As this new year begins, I promise to love you
+        more, care for you more, and choose you every day.
+        And yeahhh Sorry for the chaos that was made near
+        the end of the year. But let's forget And give a 
+        new kickkk to our relation nowwww!!
+        <br><br>
+        Forever yours ❤️
+      </p>
+      <button onclick="startQuestions()">Next 💕</button>
+    </div>
+
+    <!-- Slide 3: Question -->
+    <div id="slideQuestion" class="slide" style="display:none;">
+      <h2>Do you love me? 😌</h2>
+      <button onclick="answer('yes')">Yes</button>
+      <button onclick="answer('no')">No</button>
+    </div>
+
+    <!-- Final Slide -->
+    <div id="slideFinal" class="slide" style="display:none;">
+      <h1>I loveeee youuuu toooo 💖💖💖</h1>
+      Mwahhhhhhhhhhhhh😚😚
+    </div>
+
+  </div>
+
+  <script>
+    const music = document.getElementById(love.mp3);
+
+    function openLetter() {
+      document.getElementById("slideLetter").style.display = "none";
+      document.getElementById("slideContent").style.display = "block";
+
+      music.volume = 100;
+      music.play();
+    }
+
+    function startQuestions() {
+      document.getElementById("slideContent").style.display = "none";
+      document.getElementById("slideQuestion").style.display = "block";
+    }
+
+    function answer(choice) {
+      if (choice === "yes") {
+        document.getElementById("slideQuestion").style.display = "none";
+        document.getElementById("slideFinal").style.display = "block";
+      } else {
+        // infinite new-slide effect
+        document.getElementById("slideQuestion").style.display = "none";
+        setTimeout(() => {
+          document.getElementById("slideQuestion").style.display = "block";
+        }, 300);
+      }
+    }
+  </script>
+
+</body>
+</html>
